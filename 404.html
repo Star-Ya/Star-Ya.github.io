@@ -1,11 +1,66 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="zh-CN">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>页面走丢了！404</title>
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      font-family: "Segoe UI", sans-serif;
+      background: #f4f4f4;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      color: #333;
+    }
+
+    .container {
+      text-align: center;
+    }
+
+    h1 {
+      font-size: 6rem;
+      margin: 0;
+      color: #ff6b6b;
+    }
+
+    p {
+      font-size: 1.5rem;
+      margin: 1rem 0;
+    }
+
+    .emoji {
+      font-size: 3rem;
+      margin-top: 1rem;
+    }
+
+    a {
+      display: inline-block;
+      margin-top: 2rem;
+      padding: 0.8rem 1.5rem;
+      font-size: 1rem;
+      color: white;
+      background: #4a90e2;
+      text-decoration: none;
+      border-radius: 5px;
+      transition: background 0.3s ease;
+    }
+
+    a:hover {
+      background: #357ab8;
+    }
+  </style>
 </head>
 <body>
-    <h1>自定义的404页面，如果找不到网页，就默认自动跳转到这个页面</h1>
+  <div class="container">
+    <h1>404</h1>
+    <p>哎呀！你要找的页面飞走了～</p>
+    <div class="emoji">🚀🪐👨‍🚀</div>
+    <p>也许你可以回到 <a href="/">主页</a> 重新探索。</p>
+  </div>
 </body>
 </html>
