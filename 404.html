@@ -5,37 +5,56 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>页面走丢了！404</title>
   <style>
-    body {
+    html, body {
       margin: 0;
       padding: 0;
       font-family: "Segoe UI", sans-serif;
-      background: #f4f4f4;
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-      align-items: center;
-      height: 100vh;
-      color: #333;
+      background: #000;
+      overflow: hidden;
+      height: 100%;
+      color: #fff;
+    }
+
+    #tsparticles {
+      position: fixed;
+      width: 100%;
+      height: 100%;
+      z-index: -1;
     }
 
     .container {
       text-align: center;
+      position: relative;
+      z-index: 10;
+      top: 50%;
+      transform: translateY(-50%);
     }
 
     h1 {
       font-size: 6rem;
       margin: 0;
       color: #ff6b6b;
+      transition: transform 0.3s ease;
+    }
+
+    h1:hover {
+      transform: scale(1.1);
     }
 
     p {
       font-size: 1.5rem;
       margin: 1rem 0;
+      transition: color 0.3s ease;
     }
 
     .emoji {
       font-size: 3rem;
       margin-top: 1rem;
+      transition: transform 0.3s ease;
+    }
+
+    .emoji:hover {
+      transform: rotate(15deg) scale(1.2);
     }
 
     a {
@@ -47,20 +66,87 @@
       background: #4a90e2;
       text-decoration: none;
       border-radius: 5px;
-      transition: background 0.3s ease;
+      transition: background 0.3s ease, transform 0.3s ease;
     }
 
     a:hover {
       background: #357ab8;
+      transform: scale(1.05);
     }
   </style>
 </head>
 <body>
+  <div id="tsparticles"></div>
+
   <div class="container">
     <h1>404</h1>
     <p>哎呀！你要找的页面飞走了～</p>
     <div class="emoji">🚀🪐👨‍🚀</div>
     <p>也许你可以回到 <a href="/">主页</a> 重新探索。</p>
   </div>
+
+  <!-- 引入 tsParticles CDN -->
+  <script src="https://cdn.jsdelivr.net/npm/tsparticles@2.12.0/tsparticles.bundle.min.js"></script>
+  <script>
+    tsParticles.load("tsparticles", {
+      background: {
+        color: "#000"
+      },
+      fpsLimit: 60,
+      interactivity: {
+        events: {
+          onHover: {
+            enable: true,
+            mode: "repulse"
+          },
+          resize: true
+        },
+        modes: {
+          repulse: {
+            distance: 100,
+            duration: 0.4
+          }
+        }
+      },
+      particles: {
+        color: { value: "#ffffff" },
+        links: {
+          color: "#ffffff",
+          distance: 150,
+          enable: true,
+          opacity: 0.4,
+          width: 1
+        },
+        collisions: {
+          enable: false
+        },
+        move: {
+          direction: "none",
+          enable: true,
+          outModes: "bounce",
+          random: false,
+          speed: 1,
+          straight: false
+        },
+        number: {
+          density: {
+            enable: true,
+            area: 800
+          },
+          value: 80
+        },
+        opacity: {
+          value: 0.5
+        },
+        shape: {
+          type: "circle"
+        },
+        size: {
+          value: { min: 1, max: 5 }
+        }
+      },
+      detectRetina: true
+    });
+  </script>
 </body>
 </html>
